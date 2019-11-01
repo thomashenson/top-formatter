@@ -16,3 +16,9 @@ from top_formatter import top_formatter
 
 output = top_formatter("txt")
 ```
+
+### WIP
+
+#### json
+
+- Issue with the json output where values seperated with a space are being added to a seperate column. Will need to amend the regex.

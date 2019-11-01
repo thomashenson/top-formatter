@@ -8,7 +8,7 @@ def top_formatter(ext):
     Supported file extensions:
     - "txt"
     - "csv"
-    - "json" (wip)
+    - "json" (WIP)
     :param ext: Desired extension for output file - Type: String
     :return: Success or error message - Type: String
     """
