@@ -4,7 +4,7 @@ Python script to output the result of the Linux top command to a file of desired
 
 Supported formats:
 - "txt"
-- "csv"
+- "csv" (WIP)
 - "json" (WIP)
 
 Any other file extension is invalid. Improvements in progress for additional file types and better formatting.
@@ -19,6 +19,10 @@ output = top_formatter("txt")
 
 ### WIP
 
+#### csv
+
+- Issue with the csv output where some COMMAND values seperated with a space are being added to a seperate column. Will need to amend the regex.
+
 #### json
 
-- Issue with the json output where values seperated with a space are being added to a seperate column. Will need to amend the regex.
+- As json is converted from csv, pieces of certain COMMAND values are being missed. Related to csv issue.
