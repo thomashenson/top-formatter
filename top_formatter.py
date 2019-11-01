@@ -28,17 +28,7 @@ def top_formatter(ext):
         elif ext == "csv" or ext == "json":
             with open(csv_path, "w") as outfile:
                 # Store top output in csv file.
-                subprocess.call("top -b -n 1", shell=True, stdout=outfile)
-
-                # Remove unwanted values at the top of the output and store in new temporary file.
-                # Effectively prints from line 7 to end of output file.
-                subprocess.call("sed -n '7, $p' " + csv_path + " > new.csv", shell=True)
-
-                # Removes trailing/leading whitespace and replaces everything else with a comma.
-                subprocess.call("sed -n '{s/^ *//;s/ *$//;s/  */,/gp;}' new.csv > " + csv_path, shell=True)
-
-                # Remove temp file
-                os.remove("new.csv")
+                subprocess.call("top -b -n 1 | sed -n '7, $p' | sed -n '{s/^ *//;s/ *$//;s/  */,/gp;}'", shell=True, stdout=outfile)
 
                 # Convert to json
                 if ext == "json":
